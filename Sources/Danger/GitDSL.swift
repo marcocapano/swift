@@ -23,7 +23,11 @@ public struct Git: Decodable, Equatable {
 
     /// Removed filepaths relative to the git root.
     public let deletedFiles: [File]
-
+    
+    /// Both the newly modified and created filepaths relative to the git root
+    public let allSourceFiles: [File] {
+        return createdFiles + modifiedFiles
+    }
 }
 
 // MARK: - GitCommit
